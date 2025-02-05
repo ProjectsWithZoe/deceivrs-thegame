@@ -50,6 +50,22 @@ const getRandomDeceivers = (players: Array<{name: string, phone: string}>, numDe
     }
   };
 
+  const splitPlayers = (players)=>{
+    const numDeceivers = getNumDeceivers(players.length);
+    let deceivrs = []
+    let loyals = []
+
+    const shuffled = [...players].sort(() => Math.random() - 0.5);
+    deceivrs = shuffled.slice(0, numDeceivers);
+    loyals = shuffled.slice(numDeceivers);
+
+    return {deceivrs, loyals};
+  }
+
+  
+
+  
+
   const startGame = async () => {
     if (players.length < 5) {
       alert("You need at least 5 players!");
@@ -59,7 +75,8 @@ const getRandomDeceivers = (players: Array<{name: string, phone: string}>, numDe
       const numDeceivers = getNumDeceivers(players.length);
       const deceivers = getRandomDeceivers(players, numDeceivers);
       
-      console.log('Deceivers:', deceivers.map(d => d.name));
+      const {deceivrs, loyals} = splitPlayers(players);
+      console.log(deceivrs, loyals);
       
       const gameRef = await addDoc(collection(db, "games"), {
         players,
