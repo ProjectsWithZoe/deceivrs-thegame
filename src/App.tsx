@@ -167,8 +167,8 @@ const getRandomDeceivers = (players: Array<{name: string, phone: string}>, numDe
                   className="w-full px-4 py-2 rounded-lg bg-black/50 border border-red-900/50 focus:outline-none focus:border-red-500"
                 />
                 <input
-                  type="text"
-                  placeholder="Phone"
+                  type="number"
+                  placeholder="Phone (include country code)"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg bg-black/50 border border-red-900/50 focus:outline-none focus:border-red-500"
