@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { Users, Skull, Target, Crown } from "lucide-react";
-import sendMessage from "./SendMessage";
+import sendMessage from "./sendMessage";
 
 import axios from "axios";
 
